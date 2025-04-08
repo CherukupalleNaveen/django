@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Mark Attendance</title></head>
+<body>
+    <h2>Mark Attendance</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% for student in students %}
+            <label>{{ student.name }}</label>
+            <select name="status_{{ student.id }}">
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select><br>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+    <a href="{% url 'student_list' %}">Back</a>
+</body>
+</html>

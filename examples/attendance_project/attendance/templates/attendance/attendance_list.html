@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Attendance Records</title></head>
+<body>
+    <h2>Attendance Records</h2>
+    <a href="{% url 'student_list' %}">Back</a>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.student.name }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

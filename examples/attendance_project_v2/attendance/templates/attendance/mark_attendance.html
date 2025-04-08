@@ -1,0 +1,21 @@
+{% extends 'attendance/base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header bg-warning">Mark Attendance</div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {% for student in students %}
+            <div class="mb-3">
+                <label class="form-label">{{ student.name }}</label>
+                <select name="status_{{ student.id }}" class="form-select">
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
